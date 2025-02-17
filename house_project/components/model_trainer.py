@@ -4,8 +4,11 @@ from sklearn.ensemble import RandomForestRegressor
 from house_project.Utility.common import Create_Dir,Read_Yaml
 import numpy as np 
 from xgboost import XGBRegressor
+from sklearn.linear_model import Ridge
+
 import joblib
 import os
+from sklearn.ensemble import StackingRegressor
 
 class ModelTrainer:
     def __init__(self):
@@ -20,7 +23,7 @@ class ModelTrainer:
             train_data_input_features = train_data[:,:-1]
             train_data_target_feature = train_data[:,-1]
             
-            
+    
             rf=RandomForestRegressor(max_depth= None, 
                                      max_features= self.params.get('max_features'), 
                                      min_samples_leaf = self.params.get('min_samples_leaf'), 
