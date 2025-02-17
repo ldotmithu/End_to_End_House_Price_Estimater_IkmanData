@@ -1,0 +1,56 @@
+COLUMNS:
+  Title : object
+  Sub_title: object
+  Price: object
+  Address: object
+  Baths: object
+  Land size: object
+  Beds: object
+  House size: object
+  Location: object
+  Description: object
+  Post_URL: object
+  Seller_name: object
+  Seller_type: object
+  published_date: object
+  Geo_Address: object
+  Lat: float64
+  Lon : float64
+
+TARGET:
+  - Price
+drop_columns:
+  - Title
+  - Sub_title
+  - Address
+  - Description
+  - Post_URL
+  - Seller_name
+  - Seller_type
+  - published_date
+  - Geo_Address
+  - Lat
+  - Lon
+
+power:
+  - Land size
+  - Beds
+  - House size
+
+one_hot:
+  - Location
+
+scaler:
+  - Baths
+  - Land size
+  - Beds
+  - House size
+
+outlier: 
+  - Baths
+  - Land size
+  - House size
+  - Price 
+  - Beds
+
+

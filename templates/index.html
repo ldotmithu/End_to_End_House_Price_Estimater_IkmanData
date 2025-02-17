@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <title>House Price Estimate</title>
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="text-gray-400 bg-gray-900 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" 
+             stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+             class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl">House Price Estimate</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a class="mr-5 hover:text-white">Home</a>
+        <a class="mr-5 hover:text-white">About</a>
+        <a class="mr-5 hover:text-white">Approach</a>
+        <!-- Github link in the navbar -->
+        <a href="https://github.com/ldotmithu" target="_blank" rel="noopener noreferrer" class="mr-5 hover:text-white">
+          Github
+        </a>
+      </nav>
+      <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none 
+                     hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
+        Button
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" 
+             stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-gray-400 bg-gray-900 body-font">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10">
+        <img class="object-cover object-center rounded" alt="hero" src="/static/Untitled design.png">
+      </div>
+      <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left 
+                  items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
+          House Price<br class="hidden lg:inline-block">Prediction System
+        </h1>
+        <p class="mb-8 leading-relaxed">
+          This system is designed to predict house prices based on the Ikman real estate dataset. 
+          By entering key property details such as the number of bathrooms, bedrooms, location, 
+          house size in square feet, and land size in perches, users can get an estimated market 
+          price for a property. The system leverages advanced machine learning models trained on 
+          real estate data to generate accurate predictions.
+        </p>
+        <div class="flex justify-center">
+          <!-- Github link in the hero section -->
+          <a href="https://github.com/ldotmithu" target="_blank" rel="noopener noreferrer"
+             class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none 
+                    hover:bg-indigo-600 rounded text-lg">
+            Github
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Code Section -->
+  <section class="text-gray-400 bg-gray-900 body-font">
+    <div class="container mx-auto py-8 text-center">
+      <p class="mb-4 text-white">If you want to view this project's code, click the button below:</p>
+      <a href="https://github.com/ldotmithu" target="_blank" rel="noopener noreferrer"
+         class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none 
+                hover:bg-indigo-600 rounded text-lg">
+                Explore My GitHub Profile
+      </a>
+      <a href="https://github.com/ldotmithu/End-to-End-SL-House-Price-Prediction" target="_blank" rel="noopener noreferrer"
+         class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none 
+                hover:bg-indigo-600 rounded text-lg">
+                View Project Code on Github
+      </a>
+    </div>
+  </section>
+
+  <!-- Prediction Form Section -->
+  <form class="form-horizontal" action="/predict/" method="post">
+    <section class="text-gray-400 bg-gray-900 body-font">
+      <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-medium text-center text-white">Enter your property details</h1>
+        <div class="md:w-1/2 mx-auto mt-8">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="col-span-1">
+              <label for="Baths" class="text-white">Bathrooms</label>
+              <input type="number" id="Baths" name="Baths" class="bg-gray-800 text-white rounded-lg p-2 w-full" required>
+            </div>
+            <div class="col-span-1">
+              <label for="Land size" class="text-white">Land size (perches)</label>
+              <input type="number" id="Land size" name="Land size" class="bg-gray-800 text-white rounded-lg p-2 w-full" required>
+            </div>
+            <div class="col-span-1">
+              <label for="Beds" class="text-white">Bedrooms</label>
+              <input type="number" id="Beds" name="Beds" class="bg-gray-800 text-white rounded-lg p-2 w-full" required>
+            </div>
+            <div class="col-span-1">
+              <label for="House size" class="text-white">House size (sq.ft)</label>
+              <input type="number" id="House size" name="House size" class="bg-gray-800 text-white rounded-lg p-2 w-full" required>
+            </div>
+            <div class="col-span-2">
+              <label for="Location" class="text-white">Location</label>
+              <select id="Location" name="Location" class="bg-gray-800 text-white rounded-lg p-2 w-full" required>
+                <option value="Athurugiriya, Colombo">Athurugiriya, Colombo</option>
+                <option value="Kelaniya, Gampaha">Kelaniya, Gampaha</option>
+                <option value="Dehiwala, Colombo">Dehiwala, Colombo</option>
+                <option value="Talawatugoda, Colombo">Talawatugoda, Colombo</option>
+                <option value="Kandy City, Kandy">Kandy City, Kandy</option>
+                <option value="Piliyandala, Colombo">Piliyandala, Colombo</option>
+                <option value="Gampaha City, Gampaha">Gampaha City, Gampaha</option>
+                <option value="Katugastota, Kandy">Katugastota, Kandy</option>
+                <option value="Negombo, Gampaha">Negombo, Gampaha</option>
+                <option value="Malabe, Colombo">Malabe, Colombo</option>
+                <option value="Rajagiriya, Colombo">Rajagiriya, Colombo</option>
+                <option value="Battaramulla, Colombo">Battaramulla, Colombo</option>
+                <option value="Moratuwa, Colombo">Moratuwa, Colombo</option>
+                <option value="Kottawa, Colombo">Kottawa, Colombo</option>
+                <option value="Homagama, Colombo">Homagama, Colombo</option>
+                <option value="Minuwangoda, Gampaha">Minuwangoda, Gampaha</option>
+                <option value="Colombo 9, Colombo">Colombo 9, Colombo</option>
+                <option value="Nugegoda, Colombo">Nugegoda, Colombo</option>
+                <option value="Kalutara City, Kalutara">Kalutara City, Kalutara</option>
+                <option value="Baddegama, Galle">Baddegama, Galle</option>
+                <option value="Kotte, Colombo">Kotte, Colombo</option>
+                <option value="Kandana, Gampaha">Kandana, Gampaha</option>
+                <option value="Matara City, Matara">Matara City, Matara</option>
+                <option value="Kurunegala City, Kurunegala">Kurunegala City, Kurunegala</option>
+                <option value="Nittambuwa, Gampaha">Nittambuwa, Gampaha</option>
+                <option value="Ja-Ela, Gampaha">Ja-Ela, Gampaha</option>
+                <option value="Padukka, Colombo">Padukka, Colombo</option>
+                <option value="Kadawatha, Gampaha">Kadawatha, Gampaha</option>
+                <option value="Horana, Kalutara">Horana, Kalutara</option>
+                <option value="Kohuwala, Colombo">Kohuwala, Colombo</option>
+                <option value="Pannipitiya, Colombo">Pannipitiya, Colombo</option>
+                <option value="Kolonnawa, Colombo">Kolonnawa, Colombo</option>
+                <option value="Ganemulla, Gampaha">Ganemulla, Gampaha</option>
+                <option value="Angoda, Colombo">Angoda, Colombo</option>
+                <option value="Delgoda, Gampaha">Delgoda, Gampaha</option>
+                <option value="Karapitiya, Galle">Karapitiya, Galle</option>
+                <option value="Wellampitiya, Colombo">Wellampitiya, Colombo</option>
+                <option value="Wadduwa, Kalutara">Wadduwa, Kalutara</option>
+                <option value="Ratmalana, Colombo">Ratmalana, Colombo</option>
+                <option value="Ruwanwella, Kegalle">Ruwanwella, Kegalle</option>
+                <option value="Yatiyantota, Kegalle">Yatiyantota, Kegalle</option>
+                <option value="Ambalangoda, Galle">Ambalangoda, Galle</option>
+                <option value="Weligama, Matara">Weligama, Matara</option>
+                <option value="Colombo 5, Colombo">Colombo 5, Colombo</option>
+                <option value="Beliatta, Hambantota">Beliatta, Hambantota</option>
+                <option value="Kesbewa, Colombo">Kesbewa, Colombo</option>
+                <option value="Wattala, Gampaha">Wattala, Gampaha</option>
+                <option value="Eheliyagoda, Ratnapura">Eheliyagoda, Ratnapura</option>
+                <option value="Boralesgamuwa, Colombo">Boralesgamuwa, Colombo</option>
+                <option value="Mount Lavinia, Colombo">Mount Lavinia, Colombo</option>
+                <option value="Peradeniya, Kandy">Peradeniya, Kandy</option>
+                <option value="Digana, Kandy">Digana, Kandy</option>
+                <option value="Mawathagama, Kurunegala">Mawathagama, Kurunegala</option>
+                <option value="Anuradhapura City, Anuradhapura">Anuradhapura City, Anuradhapura</option>
+                <option value="Kundasale, Kandy">Kundasale, Kandy</option>
+                <option value="Maharagama, Colombo">Maharagama, Colombo</option>
+                <option value="Narammala, Kurunegala">Narammala, Kurunegala</option>
+                <option value="Elpitiya, Galle">Elpitiya, Galle</option>
+                <option value="Panadura, Kalutara">Panadura, Kalutara</option>
+                <option value="Kaduwela, Colombo">Kaduwela, Colombo</option>
+                <option value="Veyangoda, Gampaha">Veyangoda, Gampaha</option>
+                <option value="Katunayake, Gampaha">Katunayake, Gampaha</option>
+                <option value="Alutgama, Kalutara">Alutgama, Kalutara</option>
+                <option value="Galle City, Galle">Galle City, Galle</option>
+                <option value="Divulapitiya, Gampaha">Divulapitiya, Gampaha</option>
+                <option value="Colombo 10, Colombo">Colombo 10, Colombo</option>
+                <option value="Seeduwa, Gampaha">Seeduwa, Gampaha</option>
+                <option value="Batticaloa City, Batticaloa">Batticaloa City, Batticaloa</option>
+                <option value="Ukuwela, Matale">Ukuwela, Matale</option>
+                <option value="Kiribathgoda, Gampaha">Kiribathgoda, Gampaha</option>
+                <option value="Bandaragama, Kalutara">Bandaragama, Kalutara</option>
+                <option value="Colombo 12, Colombo">Colombo 12, Colombo</option>
+                <option value="Ragama, Gampaha">Ragama, Gampaha</option>
+                <option value="Matale City, Matale">Matale City, Matale</option>
+                <option value="Colombo 15, Colombo">Colombo 15, Colombo</option>
+                <option value="Pilimatalawa, Kandy">Pilimatalawa, Kandy</option>
+                <option value="Mahiyanganaya, Badulla">Mahiyanganaya, Badulla</option>
+                <option value="Chilaw, Puttalam">Chilaw, Puttalam</option>
+                <option value="Beruwala, Kalutara">Beruwala, Kalutara</option>
+                <option value="Balangoda, Ratnapura">Balangoda, Ratnapura</option>
+                <option value="Tangalla, Hambantota">Tangalla, Hambantota</option>
+                <option value="Nawala, Colombo">Nawala, Colombo</option>
+                <option value="Avissawella, Colombo">Avissawella, Colombo</option>
+                <option value="Kegalle City, Kegalle">Kegalle City, Kegalle</option>
+                <option value="Colombo 8, Colombo">Colombo 8, Colombo</option>
+                <option value="Jaffna City, Jaffna">Jaffna City, Jaffna</option>
+                <option value="Meegoda, Colombo">Meegoda, Colombo</option>
+                <option value="Colombo 13, Colombo">Colombo 13, Colombo</option>
+                <option value="Hanwella, Colombo">Hanwella, Colombo</option>
+                <option value="Colombo 6, Colombo">Colombo 6, Colombo</option>
+                <option value="Dankotuwa, Puttalam">Dankotuwa, Puttalam</option>
+                <option value="Embilipitiya, Ratnapura">Embilipitiya, Ratnapura</option>
+                <option value="Bandarawela, Badulla">Bandarawela, Badulla</option>
+                <option value="Mawanella, Kegalle">Mawanella, Kegalle</option>
+                <option value="Colombo 3, Colombo">Colombo 3, Colombo</option>
+                <option value="Ratnapura City, Ratnapura">Ratnapura City, Ratnapura</option>
+                <option value="Kadugannawa, Kandy">Kadugannawa, Kandy</option>
+                <option value="Colombo 4, Colombo">Colombo 4, Colombo</option>
+                <option value="Batapola, Galle">Batapola, Galle</option>
+                <option value="Ahangama, Galle">Ahangama, Galle</option>
+                <option value="Ambalantota, Hambantota">Ambalantota, Hambantota</option>
+                <option value="Kamburugamuwa, Matara">Kamburugamuwa, Matara</option>
+                <option value="Colombo 2, Colombo">Colombo 2, Colombo</option>
+                <option value="Kekanadurra, Matara">Kekanadurra, Matara</option>
+                <option value="Godagama, Colombo">Godagama, Colombo</option>
+                <option value="Wariyapola, Kurunegala">Wariyapola, Kurunegala</option>
+                <option value="Gampola, Kandy">Gampola, Kandy</option>
+                <option value="Hikkaduwa, Galle">Hikkaduwa, Galle</option>
+                <option value="Akuressa, Matara">Akuressa, Matara</option>
+                <option value="Menikhinna, Kandy">Menikhinna, Kandy</option>
+                <option value="Hakmana, Matara">Hakmana, Matara</option>
+                <option value="Nawalapitiya, Kandy">Nawalapitiya, Kandy</option>
+                <option value="Tissamaharama, Hambantota">Tissamaharama, Hambantota</option>
+                <option value="Wattegama, Kandy">Wattegama, Kandy</option>
+                <option value="Trincomalee City, Trincomalee">Trincomalee City, Trincomalee</option>
+                <option value="Hingurakgoda, Polonnaruwa">Hingurakgoda, Polonnaruwa</option>
+                <option value="Wennappuwa, Puttalam">Wennappuwa, Puttalam</option>
+                <option value="Nuwara Eliya City, Nuwara Eliya">Nuwara Eliya City, Nuwara Eliya</option>
+                <option value="Hatton, Nuwara Eliya">Hatton, Nuwara Eliya</option>
+                <option value="Kitulgala, Kegalle">Kitulgala, Kegalle</option>
+                <option value="Mannar City, Mannar">Mannar City, Mannar</option>
+                <option value="Gelioya, Kandy">Gelioya, Kandy</option>
+                <option value="Badulla City, Badulla">Badulla City, Badulla</option>
+                <option value="Galewela, Matale">Galewela, Matale</option>
+                <option value="Ampara City, Ampara">Ampara City, Ampara</option>
+                <option value="Kalmunai, Ampara">Kalmunai, Ampara</option>
+                <option value="Welimada, Badulla">Welimada, Badulla</option>
+                <option value="Ella, Badulla">Ella, Badulla</option>
+                <option value="Kuruwita, Ratnapura">Kuruwita, Ratnapura</option>
+                <option value="Matugama, Kalutara">Matugama, Kalutara</option>
+                <option value="Deniyaya, Matara">Deniyaya, Matara</option>
+                <option value="Bibile, Monaragala">Bibile, Monaragala</option>
+                <option value="Akkarepattu, Ampara">Akkarepattu, Ampara</option>
+                <option value="Ampitiya, Kandy">Ampitiya, Kandy</option>
+                <option value="Pannala, Kurunegala">Pannala, Kurunegala</option>
+                <option value="Colombo 14, Colombo">Colombo 14, Colombo</option>
+                <option value="Monaragala City, Monaragala">Monaragala City, Monaragala</option>
+                <option value="Palapathwela, Matale">Palapathwela, Matale</option>
+                <option value="Dambulla, Matale">Dambulla, Matale</option>
+                <option value="Warakapola, Kegalle">Warakapola, Kegalle</option>
+                <option value="Mirigama, Gampaha">Mirigama, Gampaha</option>
+                <option value="Rambukkana, Kegalle">Rambukkana, Kegalle</option>
+                <option value="Mullativu City, Mullativu">Mullativu City, Mullativu</option>
+                <option value="Polgahawela, Kurunegala">Polgahawela, Kurunegala</option>
+                <option value="Galigamuwa, Kegalle">Galigamuwa, Kegalle</option>
+                <option value="Galgamuwa, Kurunegala">Galgamuwa, Kurunegala</option>
+                <option value="Colombo 1, Colombo">Colombo 1, Colombo</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="bg-indigo-500 text-white py-2 px-4 rounded mt-4 w-full">
+            Get Estimate
+          </button>
+        </div>
+      </div>
+    </section>
+  </form>
+
+  <!-- Features Section -->
+  <section class="text-gray-400 body-font bg-gray-900">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">Features</h1>
+      </div>
+      <div class="flex flex-wrap -m-4">
+        <!-- Feature 1 -->
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-4">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" 
+                   stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
+            <h2 class="text-lg text-white font-medium title-font mb-2">Easy to use</h2>
+            <p class="leading-relaxed text-base">A simple tool where you enter key property features and get an instant estimate of the house price.</p>
+          </div>
+        </div>
+        <!-- Feature 2 -->
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-4">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" 
+                   stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                <circle cx="6" cy="6" r="3"></circle>
+                <circle cx="6" cy="18" r="3"></circle>
+                <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+              </svg>
+            </div>
+            <h2 class="text-lg text-white font-medium title-font mb-2">Input features</h2>
+            <p class="leading-relaxed text-base">Enter four numerical features and one categorical feature.</p>
+          </div>
+        </div>
+        <!-- Feature 3 -->
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-4">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" 
+                   stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h2 class="text-lg text-white font-medium title-font mb-2">Accuracy</h2>
+            <p class="leading-relaxed text-base">It also has good accuracy that makes good predictions using low error.</p>
+          </div>
+        </div>
+        <!-- Feature 4 -->
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-4">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" 
+                   stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
+              </svg>
+            </div>
+            <h2 class="text-lg text-white font-medium title-font mb-2">Model</h2>
+            <p class="leading-relaxed text-base">Tested on various models, but chosen: RandomForestRegressor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
