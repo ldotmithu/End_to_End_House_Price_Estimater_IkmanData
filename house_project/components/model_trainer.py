@@ -23,12 +23,12 @@ class ModelTrainer:
             train_data_input_features = train_data[:,:-1]
             train_data_target_feature = train_data[:,-1]
             
-    
-            rf=RandomForestRegressor(max_depth= None, 
-                                     max_features= self.params.get('max_features'), 
-                                     min_samples_leaf = self.params.get('min_samples_leaf'), 
-                                     min_samples_split= self.params.get('min_samples_split'), 
-                                     n_estimators =self.params.get('n_estimators'))
+            rf = XGBRegressor()
+            #rf=RandomForestRegressor(max_depth= None, 
+             #                        max_features= self.params.get('max_features'), 
+              #                      min_samples_leaf = self.params.get('min_samples_leaf'), 
+              #                       min_samples_split= self.params.get('min_samples_split'), 
+               #                      n_estimators =self.params.get('n_estimators'))
             rf.fit(train_data_input_features,train_data_target_feature)
             print(rf.score(train_data_input_features,train_data_target_feature))
             

@@ -28,7 +28,7 @@ drop_columns:
   - Seller_name
   - Seller_type
   - published_date
-  - Geo_Address
+  - Location
   - Lat
   - Lon
 
@@ -38,7 +38,7 @@ power:
   - House size
 
 one_hot:
-  - Location
+  - Geo_Address
 
 scaler:
   - Baths

@@ -19,25 +19,12 @@ def predict():
     if request.method == 'POST':
         try:
             # Get form data
-            Baths = int(request.form.get('Baths'))
-            Land_size = float(request.form.get('Land size'))
-            Beds = int(request.form.get('Beds'))
-            House_size = float(request.form.get('House size'))
-            Location = request.form.get('Location')
-            
-            if not (Baths and Land_size and Beds and House_size and Location):
-                raise ValueError("All fields are required!")
-            data = {
-            'Baths': [Baths],
-            'Land size': [Land_size],
-            'Beds': [Beds],
-            'House size': [House_size],
-            'Location': [Location]
-            }
-            data_df = pd.DataFrame(data)
+            input_data = [request.form.get('Baths'), request.form.get('Land size'), request.form.get('Beds'), request.form.get('House size'), request.form.get('Geo_Address')]
+            columns = ['Baths', 'Land size', 'Beds', 'House size', 'Geo_Address']
+            input_df = pd.DataFrame([input_data], columns=columns)
 
             pipeline = Predication_Pipeline()
-            preprocess_data = pipeline.transform(data_df)
+            preprocess_data = pipeline.transform(input_df)
             prediction = pipeline.prediction(preprocess_data)
 
             # Return the prediction

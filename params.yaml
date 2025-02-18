@@ -2,4 +2,17 @@ model:
   max_features: log2
   min_samples_leaf : 1
   min_samples_split : 2
-  n_estimators : 500 
+  n_estimators : 200 
+
+
+
+
+  
+  #model:
+  #subsample: 1.0
+  #min_child_weight : 5
+  #max_depth : 2
+  #n_estimators : 400 
+  #learning_rate: 0.05
+  #gamma: 0.1
+  #colsample_bytree: 0.6

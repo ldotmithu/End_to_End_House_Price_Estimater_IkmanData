@@ -11,15 +11,21 @@ class FeatureEngineering:
     
     def clean_price(self,data):
         data["Price"] = data['Price'].apply(lambda x: x.split(" ")[-1])
-        data['Price'] = data['Price'].str.replace(',', '', regex=True).astype(int)
+        data['Price'] = data['Price'].str.replace(',', '', regex=True)
+        data.dropna(subset=['Price'], inplace=True)
+        data['Price'] = pd.to_numeric(data['Price'])
         return data
     
     def clean_bath(self,data):
-        data["Baths"] = data['Baths'].apply(lambda x: x.replace('10+','10')).astype(int)
+        data["Baths"] = data['Baths'].apply(lambda x: x.replace('10+','10'))
+        data.dropna(subset=['Baths'], inplace=True)
+        data['Baths'] = pd.to_numeric(data['Baths'])
         return data
     
     def clean_bed(self,data):
-        data["Beds"] = data['Beds'].apply(lambda x: x.replace('10+','10')).astype(int)
+        data["Beds"] = data['Beds'].apply(lambda x: x.replace('10+','10'))
+        data.dropna(subset=['Beds'], inplace=True)
+        data['Beds'] = pd.to_numeric(data['Beds'])
         return data 
     
     def clean_land_size(self,data):
@@ -31,15 +37,25 @@ class FeatureEngineering:
         data["Land size"] = data['Land size'].str.replace('perches', '', regex=True)
         data['Land size'] = data['Land size'].apply(check_land_size)
         logging.info(f"Shape before dropna: {data.shape}")
-        data.dropna(inplace=True)
+        data.dropna(subset=['Land size'], inplace=True)
+        data['Land size'] = pd.to_numeric(data['Land size'])
         logging.info(f"Shape after dropna: {data.shape}")
         return data
         
     def clean_house_size(self,data):
         data['House size'] = data['House size'].apply(lambda x: x.split(" ")[0])
         data["House size"] = data['House size'].str.replace(',', '', regex=True)
+        data.dropna(subset=['House size'], inplace=True)
         data['House size'] = pd.to_numeric(data['House size'])
+        
         return data  
+    
+    def Geo_Address(self,data):
+        location_status = data['Geo_Address'].value_counts()
+        location_status_less_5 = location_status[location_status<5]
+        data['Geo_Address'] = data['Geo_Address'].apply(lambda x: 'Other' if x in location_status_less_5 else x)
+        data.dropna(subset=['Geo_Address'], inplace=True)
+        return data
     
     def remove_outliers_iqr(self,data,columns,multiplier =1.5):
         try:
