@@ -48,11 +48,7 @@ This project aims to develop an **End-to-End House Price Estimator** using **202
 
 ## **License**
 This project is open-source and available under the Apache-2.0 license
-
-## Glance of a project:- 
-![image](https://github.com/ldotmithu/Dataset/blob/main/house_ui_1.png)
-
-![image](https://github.com/ldotmithu/Dataset/blob/main/house_ui_2.png)
-
+```markdown
+![Flask App Image]("https://github.com/ldotmithu/Dataset/blob/main/house_ui_1.png")
 
 
