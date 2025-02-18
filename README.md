@@ -48,7 +48,7 @@ This project aims to develop an **End-to-End House Price Estimator** using **202
 
 ## **License**
 This project is open-source and available under the Apache-2.0 license
-
+```markdown
 ![Flask App Image]("End_to_End_House_Price_Estimater_IkmanDatastaticScreenshot (7).png")
 
 
